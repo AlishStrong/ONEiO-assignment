@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" mlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Output page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1> FizzBuzz Result </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th> Original </th>
+                        <th> FizzBuzzed </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="value : ${list}">
+                        <td><span th:text="${value.original}"> Original </span></td>
+                        <td><span th:text="${value.fizzBuzzed}"> FizzBuzz </span></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6">
+                <a class="btn btn-success" href="#" th:href="@{/input}"> Try again </a>
+                <a class="btn btn-primary" href="#" th:href="@{/}"> Home page </a>
+            </div>
+        </div>
+        <div class="row col-md-8">
+            <footer class="page-footer">
+                <div class="footer-copyright text-center py-3">Developed by
+                    <a href="https://www.linkedin.com/in/alisheraliev/" target="_blank">Alisher Aliev</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

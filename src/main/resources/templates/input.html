@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" mlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Input page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1> Input page </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <form th:action="@{/process}"  method="post" class="form-horizontal">
+                    <fieldset>
+                        <span class="pull-right">
+                            <input type="submit" id="submitButton" class="btn btn-success" th:value="Save">
+                            <input type="reset" id="resetButton" class="btn btn-danger" th:value="Reset"/>
+                        </span>
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">Input a number, or a set of numbers separated by comma</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="form-group" th:if="${errorText.equalsIgnoreCase('')}">
+                                    <td>
+                                        <div class="col-sm-12" style="padding-left: 0; padding-right: 0;">
+                                            <input class="form-control" th:placeholder="${inputText}" name="input" required/>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr th:if="${!errorText.equalsIgnoreCase('')}" class="form-group has-error has-feedback">
+                                    <td>
+                                        <div class="col-sm-12" style="padding-left: 0; padding-right: 0;">
+                                            <input type="text" class="form-control" id="inputError" th:placeholder="${inputText}" name="input" required/>
+                                            <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                                        </div>
+                                    </td>
+                                    <td><label class="control-label" for="inputError" th:text="${errorText}">Input with error and glyphicon</label>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <a class="btn btn-primary" href="#" th:href="@{/}"> Home page </a>
+            </div>
+        </div>
+        <div class="row col-md-8">
+            <footer class="page-footer">
+                <div class="footer-copyright text-center py-3">Developed by
+                    <a href="https://www.linkedin.com/in/alisheraliev/" target="_blank">Alisher Aliev</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
